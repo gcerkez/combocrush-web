@@ -2,117 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>ComboCrush - Combo Blast Puzzle — Playable Builds</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>ComboCrush - Combo Blast Puzzle</title>
     <link rel="icon" type="image/png" href="./favicon.png" />
     <link rel="apple-touch-icon" href="./icon-192.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-      * { box-sizing: border-box; margin: 0; padding: 0; }
-      html, body { height: 100%; }
-      body {
-        font-family: "Outfit", system-ui, sans-serif;
-        background: #0c0f24;
-        color: #fff;
-        display: flex;
-        flex-direction: column;
-        height: 100dvh;
-        overflow: hidden;
-      }
-      .version-bar {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        padding: 8px 12px;
-        background: linear-gradient(180deg, #151b3d, #10142e);
-        border-bottom: 1px solid rgba(255,255,255,.08);
-        flex: 0 0 auto;
-        padding-top: max(8px, env(safe-area-inset-top));
-      }
-      .version-bar .brand { font-weight: 900; letter-spacing: .04em; font-size: 15px; white-space: nowrap; }
-      .version-bar .brand span { color: #00c2ff; }
-      .tabs { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; }
-      .tabs::-webkit-scrollbar { display: none; }
-      .tab-btn {
-        font: inherit;
-        font-weight: 700;
-        font-size: 13px;
-        color: #94a3b8;
-        background: rgba(22,28,58,.75);
-        border: 1px solid rgba(255,255,255,.12);
-        border-radius: 999px;
-        padding: 7px 14px;
-        cursor: pointer;
-        white-space: nowrap;
-        transition: all .18s ease;
-      }
-      .tab-btn small { display: block; font-weight: 600; font-size: 10px; opacity: .75; }
-      .tab-btn.active {
-        color: #0c0f24;
-        background: linear-gradient(90deg, #00c2ff, #a855f7);
-        border-color: transparent;
-        box-shadow: 0 0 16px rgba(0,194,255,.45);
-      }
-      .tab-btn:active { transform: scale(.96); }
-      #game-frame { flex: 1 1 auto; width: 100%; border: 0; background: #0c0f24; }
-      .privacy-link { color: #94a3b8; font-size: 12px; margin-left: auto; white-space: nowrap; }
-    </style>
+    <script type="module" crossorigin src="./assets/index-CBQpJj_9.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Bg70qroU.css">
   </head>
   <body>
-    <nav class="version-bar" aria-label="Game version">
-      <div class="brand">COMBO<span>CRUSH</span></div>
-      <div class="tabs" id="version-tabs" role="tablist"></div>
-      <a class="privacy-link" href="./privacy.html">Privacy</a>
-    </nav>
-    <iframe id="game-frame" title="ComboCrush game" allow="autoplay; fullscreen"></iframe>
-    <script>
-      // Version switcher: builds are listed in versions.json. Each published
-      // branch build lives in its own folder (./main/, ./react-upgrade/, ...)
-      // and shares the root /assets/ folder. To publish another branch:
-      // deploy its dist into a new folder with asset paths rewritten to
-      // ../assets/, then add one entry to versions.json.
-      var FALLBACK = [
-        { id: "react-upgrade", label: "React Upgrade", description: "React UI + new special effects", path: "./react-upgrade/", "default": true },
-        { id: "main", label: "Classic (main)", description: "Original build", path: "./main/", "default": false }
-      ];
-      function render(versions) {
-        var tabs = document.getElementById("version-tabs");
-        var frame = document.getElementById("game-frame");
-        var wanted = (location.hash || "").replace("#", "");
-        var current = null;
-        versions.forEach(function (v) {
-          var b = document.createElement("button");
-          b.className = "tab-btn";
-          b.setAttribute("role", "tab");
-          b.innerHTML = "";
-          b.appendChild(document.createTextNode(v.label));
-          if (v.description) {
-            var s = document.createElement("small");
-            s.textContent = v.description;
-            b.appendChild(s);
-          }
-          b.addEventListener("click", function () { select(v); });
-          b.dataset.versionId = v.id;
-          tabs.appendChild(b);
-          if (v.id === wanted) current = v;
-        });
-        if (!current) current = versions.filter(function (v) { return v["default"]; })[0] || versions[0];
-        function select(v) {
-          current = v;
-          frame.src = v.path;
-          history.replaceState(null, "", "#" + v.id);
-          Array.prototype.forEach.call(tabs.children, function (el) {
-            el.classList.toggle("active", el.dataset.versionId === v.id);
-          });
-        }
-        select(current);
-      }
-      fetch("./versions.json", { cache: "no-store" })
-        .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error("versions")); })
-        .then(function (data) { render(data.versions && data.versions.length ? data.versions : FALLBACK); })
-        .catch(function () { render(FALLBACK); });
-    </script>
+    <div id="root"></div>
   </body>
 </html>
