@@ -6,5 +6,13 @@
     "path": "./",
     "sha": "89e8441",
     "date": "2026-11-12T21:38:10.249Z"
+  },
+  {
+    "id": "muse-sheet-music",
+    "label": "muse/sheet-music",
+    "branch": "muse/sheet-music",
+    "path": "branches/muse-sheet-music/",
+    "sha": "5a9cd9f",
+    "date": "2026-11-13T00:51:34.257Z"
   }
 ]
