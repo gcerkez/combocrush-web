@@ -2,25 +2,19 @@
 
 > **A GAME BY A JERRY — ENGINEERED FOR FUN**
 
-Welcome to the official public web distribution of **ComboCrush: Combo Blast**!
+Welcome to the official public web deployment of **ComboCrush: Combo Blast** (**v1.3.11**)!
 
 ## 🕹️ [PLAY ONLINE NOW (Web Browser)](https://gcerkez.github.io/combocrush-web/)
 
-* Play immediately in your browser on iOS, Android, macOS, Windows, and Linux.
+* Play immediately in your browser on iOS, Android, macOS, Windows, and Linux — powered by **React 19 + PixiJS 8 (WebGL)** with automatic Canvas2D fallback.
+* Features 4 game modes (**Classic**, **Combo Rush**, **Endless**, **Puzzle**), **24 special blocks** across 3 tiers (including Tier 2 Earthquake, Gold Rush, and Seeker Beam) with theatrical animations & custom WebAudio SFX, streak-triggered **Hyper Line Spree**, Surge Tokens & Specials Vault, Daily Rewards, and **Resume Game**.
 * No downloads or app store installation required.
 
-## Build versions (tabs)
+## 📱 Native Builds & Releases
 
-The landing page has a version switcher (driven by `versions.json`) so
-several published builds of the game can be tried side by side:
+* **Android APK / AAB & iOS IPA:** [ComboCrush Releases](https://github.com/gcerkez/ComboCrush/releases/latest)
+* **Google Play (Closed Testing):** [com.combocrush.game](https://play.google.com/store/apps/details?id=com.combocrush.game)
 
-| Tab | Folder | Source branch |
-| --- | --- | --- |
-| React Upgrade (default) | `/react-upgrade/` | `muse/react-framework-upgrade` — React UI, per-special board effects, combo fever |
-| Classic (main) | `/main/` | `main` — the original vanilla TypeScript build |
+## Build versions
 
-The game repo is private, so the tabs switch between **published builds**,
-not live private branches. To publish another branch build: deploy its
-`dist/` into a new folder here with asset paths rewritten to `../assets/`
-(all builds share the root `/assets/` folder), then add one entry to
-`versions.json`.
+The root page serves the latest `main` production build, tracked in `versions.json`. Additional branch previews (when deployed under `branches/<slug>/` via `scripts/deploy-demo.mjs`) share `/assets/` and can be switched via the edge tab (`version-switcher.js`).
