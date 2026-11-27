@@ -1,4 +1,4 @@
-import{w as _,u as U,E as I,a as h}from"./index-KE3P4jcC.js";import{g,a as y,b as p}from"./CanvasPool-BNrmShFC.js";import{S as d}from"./RenderTargetSystem-DDDNReXK.js";const x={name:"local-uniform-bit",vertex:{header:`
+import{w as _,u as U,E as I,a as h}from"./index-SaA35zy0.js";import{g,a as y,b as p}from"./CanvasPool-DTW1-eod.js";import{S as d}from"./RenderTargetSystem-v6Xid4Ln.js";const x={name:"local-uniform-bit",vertex:{header:`
 
             struct LocalUniforms {
                 uTransformMatrix:mat3x3<f32>,
